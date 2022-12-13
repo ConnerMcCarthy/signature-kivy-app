@@ -10,10 +10,9 @@ from kivy.uix.widget import Widget
 from kivy.graphics import Color, Ellipse, Line
 from kivy.uix.floatlayout import FloatLayout
 
-Window.clearcolor = (1, 1, 1, 1)
-
 #Displayed on a 2160 wide monitor
 Window.size = (2160,400)
+Window.clearcolor = (1, 1, 1, 1)
 Window.left = True
 Window.top = True
 
@@ -23,7 +22,7 @@ class CanvasWidget(Widget):
     def on_touch_down(self, touch):
         with self.canvas:
             Color(0, 0, 0)
-            #touch.ud means touch.update[name of object]
+            # "touch.ud" means touchMotionEvent.userDictionary[name of object]
             touch.ud['line'] = Line(points=(touch.x, touch.y), width=4)
 
     #Adds another point to the Line object when the touch is moved
@@ -31,10 +30,10 @@ class CanvasWidget(Widget):
         if(touch.profile != ['pos'] ):
             touch.ud['line'].points += [touch.x, touch.y]
 
-#Builds the app
+
 class SignatureApp(App):
-    def build(self):
-        
+    #Builds the app
+    def build(self):     
         #Window options
         Window.borderless = True
         parent = FloatLayout()
@@ -65,8 +64,6 @@ class SignatureApp(App):
         sleep(3)
         self.painter.canvas.clear()
         obj.disabled = False
-
-
 
 if __name__ == '__main__':
     SignatureApp().run()
