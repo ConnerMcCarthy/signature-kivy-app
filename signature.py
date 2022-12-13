@@ -30,7 +30,6 @@ class CanvasWidget(Widget):
         if(touch.profile != ['pos'] ):
             touch.ud['line'].points += [touch.x, touch.y]
 
-
 class SignatureApp(App):
     #Builds the app
     def build(self):     
