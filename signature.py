@@ -1,6 +1,6 @@
 import kivy
 import os
-kivy.require('2.1.0') # replace with your current kivy version !
+kivy.require('2.1.0')
 
 from time import sleep
 from kivy.app import App
