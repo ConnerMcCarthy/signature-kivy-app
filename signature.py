@@ -25,7 +25,7 @@ class CanvasWidget(Widget):
             # "touch.ud" means touchMotionEvent.userDictionary[name of object]
             touch.ud['line'] = Line(points=(touch.x, touch.y), width=4)
 
-    #Adds another point to the Line object when the touch is moved
+    #Adds another point to the Line object when finger is moved
     def on_touch_move(self, touch):
         if(touch.profile != ['pos'] ):
             touch.ud['line'].points += [touch.x, touch.y]
